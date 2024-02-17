@@ -22,7 +22,13 @@ def menu():
 def display_all_buyers():
    buyers = get_all_buyers()
    for buyer in buyers:
-      print(f"{buyer.id} => {buyer.name}")
+      print(f"{buyer.id} --- {buyer.name}")
+
+def display_all_books():
+   books = get_all_books()
+   for book in books:
+      print(f"{book.isbn} -- {book.author}")
+
 if __name__ == "__main__":
   with app.app_context():
     migrate.init_app(app, db)
@@ -33,7 +39,7 @@ if __name__ == "__main__":
       if choice == "0":
           exit_program()
       elif choice == "1":
-          get_all_books()
+          display_all_books()
       elif choice == "2":
           display_all_buyers()
       elif choice == "3":
