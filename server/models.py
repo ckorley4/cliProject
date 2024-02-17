@@ -7,7 +7,6 @@ class Book(db.Model):
     title=db.Column(db.String)
     author=db.Column(db.String,unique=True)
     price=db.Column(db.Integer)
-    sale_date=db.Column(db.DateTime, server_default=db.func.now())
     created_at=db.Column(db.DateTime, server_default=db.func.now())
     updated_at=db.Column(db.DateTime, onupdate=db.func.now())
 

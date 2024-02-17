@@ -14,5 +14,6 @@ def get_buyer_by_id(id):
     return db.session.get(Buyer,id)
 
 def add_book():
-    title="Enter title of the Book"
+    book_titles =[book.title for book in db.session.query(Book).all()]
+    title=input("Enter title of the Book")
     book_title,index=pick(title)
