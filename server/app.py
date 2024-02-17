@@ -1,7 +1,7 @@
 from config import app, migrate
 
 from models import db
-from utils import exit_program,get_all_books,get_all_buyers,new_book
+from utils import exit_program,get_all_books,update_book_title,get_all_buyers,update_book,new_book,delete_book,get_book_by_id,get_buyer_by_id
 def home():
   print("Welcome to Our Book Store")
 
@@ -49,11 +49,17 @@ if __name__ == "__main__":
         new_book()
         print("Book added")
       elif choice == "5":
-           print("Hi")
-           # update_department()
+         book_isbn = input("Enter the isbn of book to rename : ")
+         book = get_book_by_id(book_isbn)
+         update_book_title(book)
+
       elif choice == "6":
-         print("Hi")
-           # delete_department()
+         book_isbn = input("Enter the isbn of book to be deleted : ")
+         book = get_book_by_id(book_isbn)
+         if book:
+            delete_book(book)
+         else:
+            print("There is no book with this ISBN")
       elif choice == "7":
          print("Hi")
             #list_employees()
