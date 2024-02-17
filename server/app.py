@@ -1,7 +1,7 @@
 from config import app, migrate
 
 from models import db
-from utils import exit_program,get_all_books,get_all_buyers,get_book_by_id
+from utils import exit_program,get_all_books,get_all_buyers,new_book
 def home():
   print("Welcome to Our Book Store")
 
@@ -46,8 +46,8 @@ if __name__ == "__main__":
          print("Hi")
            # find_department_by_id()
       elif choice == "4":
-          print("Hi")
-           #create_department()
+        new_book()
+        print("Book added")
       elif choice == "5":
            print("Hi")
            # update_department()
@@ -68,4 +68,5 @@ if __name__ == "__main__":
            # create_employee()
       else:
             print("Invalid choice")
+      
     # remove pass and write your cli logic
