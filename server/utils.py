@@ -4,6 +4,9 @@ def get_all_buyers():
     return db.session.query(Buyer).all()
 
 
+def exit_program():
+    print("Goodbye!")
+    exit()
 def get_all_books():
     return db.session.query(Book).all()
 
