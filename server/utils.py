@@ -19,6 +19,10 @@ def get_book_by_id(id):
 def get_buyer_by_id(id):
     return db.session.get(Buyer,id)
 
+def get_buyer_by_card(card):
+    card_no = db.session.query(Buyer).filter(Buyer.card_number== card).first()
+    return f"Name: {card_no.name} Address: {card_no.address} "
+
 def new_book():
     title = input("Enter the title of the book  : ")
     author = input("Who wrote it?  :  ")
@@ -46,6 +50,7 @@ def update_book_title(book):
     new_title, index = pick(["New","Old","Mordern"], prompt)
     book.title = new_title
     db.session.commit()
+
 
 def update_book():
     book_titles = [book.title for book in db.session.query(Book).all()]

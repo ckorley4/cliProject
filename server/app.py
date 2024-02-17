@@ -1,9 +1,10 @@
 from config import app, migrate
+from rich import print
 
 from models import db
-from utils import exit_program,get_all_books,update_book_title,get_all_buyers,update_book,new_book,delete_book,get_book_by_id,get_buyer_by_id
+from utils import exit_program,get_buyer_by_card,get_all_books,update_book_title,get_all_buyers,update_book,new_book,delete_book,get_book_by_id,get_buyer_by_id
 def home():
-  print("Welcome to Our Book Store")
+  print("[bold cyan]Welcome to Our Book Store[/]")
 
 def menu():
   print("Please select an option:")
@@ -43,8 +44,9 @@ if __name__ == "__main__":
       elif choice == "2":
           display_all_buyers()
       elif choice == "3":
-         print("Hi")
-           # find_department_by_id()
+          isbn = input("Enter the isbn of book to rename : ")
+          book_isbn=get_book_by_id(isbn)
+          print(book_isbn)
       elif choice == "4":
         new_book()
         print("Book added")
@@ -61,17 +63,19 @@ if __name__ == "__main__":
          else:
             print("There is no book with this ISBN")
       elif choice == "7":
-         print("Hi")
-            #list_employees()
+         card =input("Enter the card number of buyer  : ")
+         card_no = get_buyer_by_card(card)
+         print(card_no)
+          
       elif choice == "8":
          print("Hi")
-           # find_employee_by_name()
+          
       elif choice == "9":
          print("Hi")
-           # find_employee_by_id()
+          
       elif choice == "10":
          print("Hi")
-           # create_employee()
+         
       else:
             print("Invalid choice")
       
